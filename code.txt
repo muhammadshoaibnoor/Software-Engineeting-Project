@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Tools and Technology}
+\author{Zainab }
+\date{November 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Methodology}
+his project uses the \textbf{Agile Scrum} methodology.In Scrum, work is divided into short time periods called \textbf{sprints}. Each sprint focuses on completing a specific set of tasks and goals. At the end of each sprint, the progress is reviewed, and feedback is taken from the team members or users. This helps the team understand what is going well and what needs improvement before starting the next sprint.
+ It is one of the most popular and flexible software development methods. It is one of the most popular and flexible software development methods.
+ \textbf{Main sprints of this project:}
+\begin{itemize}
+    \item Understanding user and system requirements
+    \item Creating use case diagrams
+    \item Designing the software interface
+    \item Final documentation and making the prototype
+\end{itemize}
+Agile Scrum approach also includes regular meetings such as the daily stand-up meeting, where team members share updates on their work. This keeps everyone on the same page and helps solve any problems quickly.Scrum is very useful when project requirements may change with time. It allows developers and designers to make updates or improvements easily without affecting the whole system. It also ensures that users are involved throughout the project, which helps in creating a final product that matches real user needs.
+By using Agile Scrum, the project becomes more organized, interactive, and easy to manage. It saves time, improves teamwork, and helps in delivering a better-quality prototype at the end.
+\section{Tools and Technologies}
+In this project, the main focus is on understanding requirements and creating a working prototype. To complete these tasks in an organized and efficient way, several tools and technologies are used. Each tool helps in a different part of the project and makes the work easier to manage.
+
+\textbf{1. Designing Tool: Figma}\\
+Figma is used for designing the layout and interface of the software. It helps in creating \textbf{wireframes} and \textbf{interactive prototypes} that show how the final system will look and work. Figma allows the team to share designs easily and collect feedback from users during the development process.
+
+\textbf{2. Documentation Tool: \LaTeX}\\
+\LaTeX\ is used for writing and formatting the project report. It helps in organizing the documentation neatly with proper sections, headings, and references. Using \LaTeX\ makes the final report more professional and easy to update if changes are needed.
+
+\textbf{3. Version Control: GitHub}\\
+GitHub is used to store all project files, including reports, diagrams, and design documents. It provides version control, which means all changes are saved with history. This allows teamwork, as multiple people can work on the same project and keep everything in sync. It also makes it easier to share the project online.
+
+\textbf{4. Diagram Tools: Draw.io or Lucidchart}\\
+Draw.io and Lucidchart are used to create different diagrams such as \textbf{Use Case Diagrams}, \textbf{Data Flow Diagrams (DFD)}. These diagrams help in understanding the system requirements and design more clearly.
+
+By using these tools together, the project becomes more organized, visual, and easy to understand. They help in designing, documenting, and managing the project from start to finish in a simple and effective way.
+\noindent\textbf{Reference:}
+
+
+\section*{AI Tools Usage}
+
+While making this proposal, we used some AI tools, especially ChatGPT (a language model by OpenAI), to help our team in different parts like writing ideas, making the document, and improving it. The reason for using these tools was to save time, make our writing more clear, and keep the proposal looking good. Mainly, AI tools were used for the following things:
+
+\begin{itemize}
+    \item Generate ideas for project and proposed system features
+    \item To improve clarity, grammar, and structure of written content
+    \item Researching best practices for software development methodologies
+    \item Suggesting appropriate tools and technologies for the project
+\end{itemize}
+
+we used ChatGPT to help us explain some technical parts in an easier way, fix a few LaTeX formatting issues, and give ideas on how to organize the report better. Whatever content the AI gave, we checked it properly and changed things in our own words to make sure everything was correct, original, and matched our project goals.
+
+The AI tools were used strictly as supportive aids. All final decisions, content approval, and design implementations were made solely by the project team members.
+
+\bigskip
+\noindent\textbf{Reference:}
+
+\end{document}
