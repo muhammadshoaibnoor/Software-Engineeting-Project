@@ -1,0 +1,297 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{pgfgantt}
+\usepackage[margin=1in]{geometry}
+\newcommand{\MainHeading}[1]{{\LARGE \textbf{#1}}}
+\newcommand{\SubHeading}[1]{{\large \textbf{#1}}}
+\newcommand{\Medium}[1]{{\Large \textbf{#1}}}
+\begin{document}
+
+\begin{titlepage}
+\noindent
+\includegraphics[width=2.5cm]{logo.png} 
+\hspace{0.5cm}
+\raisebox{0.9cm}{\MainHeading{Namal University, Mianwali}}
+
+\vspace{0.3cm}
+
+\begin{center}
+{\Large \textbf{Project Proposal Document}}\\[1cm]
+
+\SubHeading{Project:} Point-of-Sale System\\[0.3cm]
+\SubHeading{Course:} CSC-225 – Software Engineering\\[0.3cm]
+\SubHeading{Department:} Computer Science\\[0.3cm]
+\SubHeading{Semester:} Fall 2025\\[1.5cm]
+
+\textbf{Submitted To:}\\
+Ms. Asiya Batool\\
+Lecturer, Department of Computer Science\\[1.3cm]
+
+\textbf{Submitted By:}\\
+Muhammad Shoaib \hspace{0.55cm} Reg No: Num-Bscs-2024-57\\
+Allah Ditta \hspace{2cm} Reg No:  Num-Bscs-2024-10\\
+Zainab Bibi \hspace{1.95cm} Reg No:  Num-Bscs-2024-79\\[0.5cm]
+
+\vfill
+\textbf{Submission Date: 9 Nov 2025} \\
+\end{center}
+
+\end{titlepage}
+
+
+\begin{center}
+\pagestyle{empty}
+\SubHeading{Requirement Provider Agreement}
+\end{center}
+\noindent
+\SubHeading{Project Title:} Point-of-Sale System\\
+\SubHeading{Course:} CSC-225 – Software Engineering\\
+\SubHeading{Department:} Computer Science, Namal University
+
+\vspace{1cm}
+
+\noindent
+This agreement is made between the following parties.
+
+\vspace{0.3cm}
+
+\noindent
+\SubHeading{Student Team:}\\
+Muhammad Shoaib \hspace{1cm}Reg No: Num-Bscs-2024-57\\
+Allah Ditta \hspace{2.45cm}Reg No: Num-Bscs-2024-10\\
+Zainab Bibi \hspace{2.4cm}Reg No: Num-Bscs-2024-79\\
+
+\vspace{0.5cm}
+
+\noindent
+\SubHeading{Requirement Provider (RP):}\\
+Dr Muzamil Ahmed\\
+Assistant Professor, Department of Computer Science, Namal University
+
+\vspace{1cm}
+
+\noindent
+\SubHeading{Agreement Purpose:}\\
+The student team and the Requirement Provider agree to work together for the Software Engineering Project. Dr Muzamil will provide requirements, feedback, and guidance. The team will do regular meetings and share progress updates.
+
+\vspace{1cm}
+
+\noindent
+\SubHeading{Signatures:}\\
+Muhammad Shoaib (Team Leader)\hspace{0.5cm}Signature:
+\includegraphics[width=2cm]{mylogo.jpg}\\[0.1cm]
+Dr Muzamil Ahmed (RP) \hspace{2.05cm}Signature:
+\includegraphics[width=2cm]{sirlogo.jpg}\\[0.5cm]
+Date: \hspace{7.5cm} 7 Nov 2025
+
+\newpage
+\tableofcontents
+\newpage
+\section{Introduction}
+Restaurants, such as pizza shops, often face difficulties in managing orders, sales, and inventory, especially when operating multiple branches. A Point-of-Sale (POS) system helps overcome these challenges by simplifying the process of taking and managing orders, and organizing operations even during busy hours. It provides a centralized view of menus and stock for each branch, ensuring that only available items are shown. The system tracks popular dishes, alerts staff when ingredients run low, and maintains consistent pricing across branches, reducing errors and speeding up service.
+
+\section{Problem Statement}
+Many pizza shops currently rely on manual management, which often leads to several problems. Orders are written by hand, causing mistakes such as wrong items, missing custom requests, or miscommunication between waiters and kitchen staff. In multi-branch setups, a waiter may take an order for an item unavailable at their branch. Manual billing and order tracking are time-consuming, especially during busy hours, resulting in delays. Without a POS system, generating accurate sales reports, identifying best-selling items, and applying deals or discounts effectively is difficult, which may reduce customer satisfaction and revenue.
+
+\section{Project Objectives}
+The following objectives define the main goals and expected outcomes of the project.
+
+\begin{enumerate}
+    \item To design a multi-branch compatible Point-of-Sale (POS) system for pizza shops.
+    \item To allow the admin to create, update, and delete menu items for each branch.
+    \item To manage inventory of both raw ingredients and prepared items in real time.
+    \item To provide automatic deal recommendations based on user selections.
+    \item To ensure efficient order processing and accurate billing.
+\end{enumerate}
+
+\section{Stakeholder Identification}
+The proposed system involves several key stakeholders, each with specific roles and responsibilities
+\begin{table}
+\label{tab:stakeholders}
+\begin{tabularx}{\textwidth}{|p{3.8cm}|p{3.3cm}|X|}
+\hline
+\textbf{Stakeholder} & \textbf{Role} & \textbf{Interest / Responsibility} \\ \hline
+Requirement Provider (Dr. Muzamil Ahmed) & Client / End User Representative & Provides system requirements, reviews prototypes, validates functionality, and gives ongoing feedback. \\ \hline
+Administrator & System Owner & Monitors sales across all branches, manages user accounts, maintains centralized reports, and has authority to add, remove, or update menu items. \\ \hline
+Waiter / Service Staff & POS Terminal User & Takes customer orders, updates order status, notifies kitchen staff, serves prepared items, and ensures order accuracy. \\ \hline
+Kitchen Staff & POS Terminal User & Receives order notifications, prepares dishes, updates preparation status, and communicates completion to waiters. \\ \hline
+Cashier / Staff & POS Terminal User & Processes payments, verifies bills, and monitors order status for completed transactions. \\ \hline
+Customer & Indirect Stakeholder / End User & Places orders through waiters, benefits from deal recommendations \\ \hline
+Development Team (Student Group) & Designers / Implementers & Responsible for system analysis, design, implementation, testing, maintaining system integrity, resolving issues, and documenting the system. \\ \hline
+\end{tabularx}
+\end{table}
+\newpage
+
+\section{Gantt Chart}
+
+\vspace{0.3cm}
+
+The Gantt charts below show the \textbf{planned schedule for the POS system development over one year}. Part 1 covers the initial phases, including requirement analysis, backlog creation, SRS preparation, and the first development sprints. Part 2 continues with advanced module development, system integration, user testing, and the final release.\\
+
+
+\Medium{Gantt Chart Part 1: POS System Development (Oct 2025 - Mar 2026)}
+
+
+\begin{ganttchart}[
+    hgrid,
+    vgrid,
+    time slot format=isodate,
+    compress calendar,
+    x unit=0.06cm,
+    y unit chart=0.6cm,
+    bar label font=\scriptsize,
+    bar/.append style={fill=blue!30},
+    bar height=0.6
+]{2025-10-30}{2026-03-31}
+
+\gantttitlecalendar[title label font=\scriptsize]{year, month=shortname} \\
+
+% Requirement Phase
+\ganttbar{First Meeting with RP (Product Vision)}{2025-10-30}{2025-10-30} \\
+\ganttbar{Product Backlog Creation \& Refinement}{2025-11-01}{2025-12-17} \\
+\ganttbar{Second Meeting with RP (System Flow, SRS \& Diagrams)}{2025-12-18}{2026-01-05} \\
+
+% Development Sprints
+\ganttbar{Sprint 1: Core Order Management}{2026-01-06}{2026-01-26} \\
+\ganttbar{Sprint 2: Kitchen Module}{2026-01-27}{2026-02-16} \\
+\ganttbar{Sprint 3: Billing \& Payment Module}{2026-02-17}{2026-03-09} \\
+\ganttbar{Sprint 4: Deals \& Recommendations}{2026-03-10}{2026-03-30} \\
+\ganttbar{Sprint 5: Inventory Management}{2026-03-31}{2026-03-31} \\
+
+\end{ganttchart}
+
+\Medium{Gantt Chart Part 2: POS System Development (Apr 2026 - Sep 2026)}
+
+\begin{ganttchart}[
+    hgrid,
+    vgrid,
+    time slot format=isodate,
+    compress calendar,
+    x unit=0.06cm,
+    y unit chart=0.6cm,
+    bar label font=\scriptsize,
+    bar/.append style={fill=blue!30},
+    bar height=0.6
+]{2026-04-01}{2026-09-30}
+
+\gantttitlecalendar[title label font=\scriptsize]{year, month=shortname} \\
+
+% Development Sprints continued
+% Development Sprints continued
+\ganttbar{Sprint 6: Admin Module}{2026-04-01}{2026-04-21} \\
+\ganttbar{Sprint 7: System Integration \& Testing}{2026-04-22}{2026-05-12} \\
+\ganttbar{Sprint 8: User Acceptance Testing (UAT)}{2026-05-13}{2026-06-02} \\
+\ganttbar{Sprint 9: Final Enhancements \& Bug Fixes}{2026-06-03}{2026-06-23} \\
+
+% Release & Maintenance split into proper sprints
+\ganttbar{Sprint 10: Minor Enhancements \& Bug Fixes}{2026-06-24}{2026-07-14} \\
+\ganttbar{Sprint 11: Monitoring \& Performance Evaluation}{2026-07-15}{2026-08-04} \\
+\ganttbar{Sprint 12: Final Deployment}{2026-08-05}{2026-08-30} \\
+\ganttbar{Sprint 13: Documentation}{2026-09-01}{2026-09-30} \\
+
+
+\end{ganttchart}
+
+
+\section{Methodology}
+
+This project follows the \textbf{Agile Scrum methodology}. Work is divided into \textbf{short, time-boxed sprints}, each focusing on completing specific tasks. At the end of every sprint, progress is reviewed, feedback is collected, and the plan is improved for the next sprint. Scrum allows flexibility, so changes in requirements can be included without affecting the whole project.
+
+The project spans \textbf{one year}, from \textbf{October 2025 to September 2026}, and is divided into multiple sprints and key activities:
+
+\begin{itemize}
+    \item \textbf{Requirement Analysis (Oct 2025 – Jan 2026):}\\
+    The project began with the first meeting with the Requirement Provider to understand the project vision. Product backlog creation and refinement followed. In the second meeting, the system flow was finalized, and the SRS along with context and use case diagrams was prepared.
+    
+    \item \textbf{Development Sprints (Jan 2026 – May 2026):}\\
+    Sprint 1: Core Order Management \\
+    Sprint 2: Kitchen Module \\
+    Sprint 3: Billing \& Payment Module \\
+    Sprint 4: Deals \& Recommendations \\
+    Sprint 5: Inventory Management \\
+    Each sprint focused on designing, implementing, and testing individual modules step by step.
+    
+    \item \textbf{Advanced Modules and Admin Features (Apr 2026 – May 2026):} \\
+    Sprint 6: Admin Module development \\
+    Sprint 7: System Integration \& Testing
+    
+    \item \textbf{User Testing and Final Enhancements (Jun 2026 – Jul 2026):}\\
+    Sprint 8: User Acceptance Testing (UAT) \\
+    Sprint 9: Final Enhancements & Bug Fixes
+    
+    \item \textbf{Deployment, Monitoring, and Documentation (Jul 2026 – Sep 2026):}\\
+    Sprint 10: Minor Enhancements & Bug Fixes \\
+    Sprint 11: Monitoring & Performance Evaluation \\
+    Sprint 12: Final Deployment \\
+    Sprint 13: Documentation
+\end{itemize}
+
+The team held regular \textbf{daily stand-up meetings} to share updates and solve problems quickly. At the end of each sprint, progress was reviewed, feedback was collected, and plans were updated for the next sprint.
+
+This approach helped the team work in a clear and step-by-step way. Each part of the system was completed one by one, and the Requirement Provider and users were involved throughout. Using Scrum for the full year made it easier to manage tasks, avoid mistakes, and deliver a high-quality POS system that meets user needs.
+
+\section{Tools and Technologies}
+
+The following key tools and technologies are used for the development of the POS system:\\
+
+\begin{itemize}
+\item \textbf{Backend / Core Logic:} The system backend is developed using C++.
+\vspace{0.3cm}
+
+\item \textbf{Frontend / User Interface:} HTML, CSS, and JavaScript are used to create the interfaces for the waiter, cashier, and kitchen staff, ensuring a responsive and user-friendly experience.
+\vspace{0.1cm}
+
+\item \textbf{Database:} MySQL stores all critical data including menu items, orders, inventory, and sales reports.
+\vspace{0.3cm}
+
+\item \textbf{Real-time Communication:} WebSocket or socket programming is used to send order status updates instantly between the waiter, kitchen, and cashier terminals.
+\vspace{0.3cm}
+
+
+\item \textbf{Payment Processing:} The system integrates local online payment gateways for secure online transactions. Cash payments are entered manually through the POS.
+\vspace{0.3cm}
+
+\item \textbf{Version Control:} Git along with GitHub is used to track code changes and support collaboration among the development team.
+\vspace{0.3cm}
+
+\item \textbf{Project Management / Scrum:} Jira or Trello is used to manage sprints, backlogs, and tasks efficiently throughout the development cycle.
+\vspace{0.3cm}
+
+\item\textbf{Deployment Platform:} The POS system runs on Windows or Linux desktops for use by staff in the restaurant.
+\vspace{0.3cm}
+
+\item \textbf{Documentation and Diagrams:} LaTeX along with UML tools such as draw.io or StarUML is used to prepare the SRS, context diagrams, and use case diagrams.
+\vspace{0.3cm}
+
+\item \textbf{Prototype Design:} Figma is used to design the system interface and workflow before actual development, allowing visualization and early feedback.
+\end{itemize}
+
+\section{AI Tools Usage}
+
+While preparing this proposal, AI tools, especially ChatGPT (by OpenAI), were used to help in various areas such as writing, formatting, and understanding system features. The AI tools were used for the following purposes:
+
+\begin{itemize}
+    \item \textbf{Generating ideas for project features and proposed system:} \\
+    Prompt used: ``Suggest features and modules for a Point-of-Sale (POS) system for a pizza shop.''
+
+    \item \textbf{Improving clarity, grammar, and structure of written content:} \\
+    Prompt used: ``Rewrite the following text in clear and professional English: [insert text].''
+
+    \item \textbf{Researching best methodologies for the development of POS system:} \\
+    Prompt used: ``Tell me which is the  best methodology to develop POS system ''
+
+    \item \textbf{Suggesting appropriate tools and technologies for the project:} \\
+    Prompt used: ``List the most important tools and technologies required to develop a POS system.''
+
+    \item \textbf{Code for a Gantt Chart:} \\
+    Prompt used: ``How to make a Gantt chart in latex.''
+
+\end{itemize}
+
+\section{Reference}
+OpenAI. (2025). ChatGPT [Large language model]. Retrieved from https:
+//chat.openai.com
+
+
+\end{document}
