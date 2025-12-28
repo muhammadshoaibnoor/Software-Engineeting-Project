@@ -563,7 +563,7 @@ This subsection specifies both static and dynamic numerical requirements placed 
     \item New users shall be able to perform primary tasks (login, place/update orders, generate reports) within 10 minutes of training, verified with at least 90\% success rate in test users.
 \end{itemize}
 
-\subsubsection{Hardware Interfaces (6.3.1.5.2)}
+\subsubsection{Hardware Interfaces}
 \begin{itemize}
     \item The system shall run on  desktop PCs, and Android.
     \item The system shall interface with receipt printers for printing bills and order receipts.
