@@ -477,9 +477,6 @@ Users are assumed to have basic knowledge of POS systems.
 \end{itemize}
 
 \subsection{Performance Requirements}
-
-This subsection specifies both static and dynamic numerical requirements placed on the software or on human interaction with the software.
-
 \subsubsection{Static Numerical Requirements}
 \begin{itemize}
     \item The system shall support at least 50 concurrent users (waiters, cashiers, kitchen staff, admins).
