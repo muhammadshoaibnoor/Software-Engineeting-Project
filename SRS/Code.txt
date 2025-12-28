@@ -1,0 +1,619 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{pgfgantt}
+\usepackage[utf8]{inputenc}  % allows UTF-8 characters
+\usepackage{amsmath, amssymb} % provides \geq and other math symbols
+
+\usepackage[margin=1in]{geometry}
+\newcommand{\MainHeading}[1]{{\LARGE \textbf{#1}}}
+\newcommand{\SubHeading}[1]{{\large \textbf{#1}}}
+\newcommand{\Medium}[1]{{\Large \textbf{#1}}}
+\begin{document}
+
+\begin{titlepage}
+\noindent
+\includegraphics[width=2.5cm]{logo.png} 
+\hspace{0.5cm}
+\raisebox{0.9cm}{\MainHeading{Namal University, Mianwali}}
+
+\vspace{0.3cm}
+
+\begin{center}
+{\Large \textbf{Software Requirements Specification (SRS)}}\\[1cm]
+
+\SubHeading{Project:} Point-of-Sale System\\[0.3cm]
+\SubHeading{Course:} CSC-225 – Software Engineering\\[0.3cm]
+\SubHeading{Department:} Computer Science\\[0.3cm]
+\SubHeading{Semester:} Fall 2025\\[1.5cm]
+
+\textbf{Submitted To:}\\
+Ms. Asiya Batool\\
+Lecturer, Department of Computer Science\\[1.3cm]
+
+\textbf{Submitted By:}\\
+Muhammad Shoaib \hspace{0.55cm} Reg No: Num-Bscs-2024-57\\
+Allah Ditta \hspace{2cm} Reg No: Num-Bscs-2024-10\\
+Zainab Bibi \hspace{1.95cm} Reg No: Num-Bscs-2024-79\\[0.5cm]
+
+\vfill
+\textbf{Submission Date: 28 Dec 2025} \\
+\end{center}
+
+\end{titlepage}
+
+
+\tableofcontents
+\newpage
+\section{introduction}
+
+\subsection{Purpose}
+\begin{flushleft}
+The purpose of this SRS is to formally define the requirements of the Point-of-Sale (POS) system for a pizza shop.  
+
+This document serves as a reference for developers, administrators, and end users to understand the system’s intended functionality and constraints.  
+
+The SRS follows IEEE 830-1984 to ensure clarity, completeness, and consistency.
+\end{flushleft}
+\subsection{Scope}
+\begin{flushleft}
+The POS system is the software product to be developed.
+
+It shall support restaurant operations including order placement, deal recommendations, billing, kitchen coordination, and administrative management.
+
+The system shall support multiple user roles: Waiter, Cashier, Kitchen Staff, and Admin.
+
+The goals of the system include:
+\end{flushleft}
+
+
+\begin{itemize}
+    \item Improving order accuracy
+    \item Reducing service time
+    \item Providing real-time visibility of order status across all operational roles
+\end{itemize}
+
+\subsection{Definitions, Acronyms, and Abbreviations}
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Term} & \textbf{Description} \\ \hline
+POS & Point-of-Sale system used for sales and order processing \\ \hline
+SRS & Software Requirements Specification \\ \hline
+RP & Requirement Provider \\ \hline
+Scrum & Agile development framework used for iterative development and team collaboration \\ \hline
+Sprint & Time-boxed iteration in Scrum methodology \\ \hline
+\end{tabularx}
+\caption{Definitions, Acronyms, and Abbreviations}
+\label{tab:definitions}
+\end{table}
+
+
+\subsection{References}
+
+\begin{enumerate}
+    \item IEEE Std 830-1984: Software Requirements Specification, IEEE, 1984.
+    \item Team meeting with Requirement Provider (RP) regarding POS system requirements, December 2025.
+\end{enumerate}
+
+\subsection{Overview}
+\begin{flushleft}
+    This document provides a high-level description of the POS system.  
+
+General system characteristics, user roles, constraints, and assumptions are described in the following sections.  
+
+Specific functional and non-functional requirements, interface requirements, and system attributes are detailed in subsequent sections.
+\end{flushleft}
+
+
+\section{General Description}
+
+\subsection{Product Perspective}
+\begin{flushleft}
+ The POS system is a centralized software application deployed on devices within the restaurant.  
+
+It replaces manual order handling and disconnected billing systems.  
+
+The system integrates order processing, kitchen notifications, and billing into a single platform with role-based user interfaces.  
+
+Supported hardware includes desktops, and tablets.   
+\end{flushleft}
+
+\subsection{Product Functions}
+
+The system provides the following functions at a high level:
+\begin{itemize}
+    \item Role-based login for Waiter, Cashier, Kitchen Staff, and Admin
+    \item Menu display and order placement
+    \item Automatic deal recommendation for cost optimization
+    \item Real-time order status tracking
+    \item Bill generation and payment handling
+    \item Administrative reporting and menu management
+\end{itemize}
+
+\subsection{User Characteristics}
+
+\begin{itemize}
+    \item \textbf{Waiter:} Places orders, selects tables, views order status, serves customers.
+    \item \textbf{Cashier:} Generates bills, handles payments, views order summaries.
+    \item \textbf{Kitchen Staff:} Receives and updates order preparation status.
+    \item \textbf{Admin:} Manages menu items, views sales reports, and controls system data.
+\end{itemize}
+
+Users are assumed to have basic knowledge of POS systems.
+
+\subsection{General Constraints}
+
+\begin{itemize}
+    \item The system shall follow Scrum methodology for development.
+    \item The SRS must comply with IEEE 830-1984 standards.
+    \item Hardware and network limitations, interface compatibility, and security considerations shall be addressed in the Specific Requirements section.
+\end{itemize}
+
+\subsection{Assumptions and Dependencies}
+
+\begin{itemize}
+    \item Users have basic POS knowledge.
+    \item Required hardware devices (Desktops, tablets, printers, cash drawers) are available and functional.
+    \item Payment gateways are provided by third-party services.
+    \item Kitchen and cashier terminals are connected to the same network.
+\end{itemize}
+
+\section{Specific Requirements}
+
+\subsection{Functional Requirements}
+
+\subsubsection{User Authentication}
+
+\textbf{Functional Requirements:}
+\begin{itemize}
+    \item \textbf{FR-01.1} The system shall allow authorized users to log in using a unique username and password.
+    \item \textbf{FR-01.2} The system shall validate the entered credentials against stored user records.
+    \item \textbf{FR-01.3} The system shall grant access based on the authenticated user’s role.
+    \item \textbf{FR-01.4} The system shall deny access and display an error message if authentication fails.
+\end{itemize}
+
+\textbf{Introduction:} System ensures that only authorized users can access the system and that users interact only with features relevant to their role.
+
+\textbf{Inputs:}
+\begin{itemize}
+    \item \textbf{Data:} Username and password.
+    \item \textbf{Sources:} Login interface on devices (tablet, desktop).
+    \item \textbf{Quantities:} One username and password pair per login.
+    \item \textbf{Units of Measure:} Strings (username and password).
+    \item \textbf{Timing:} On Login attempt.
+    \item \textbf{Valid Range:} Username and password strings of 8–16 alphabets, numeric and a special characters.
+    \item \textbf{Operator Controls:} User add username and password and clicks ``Login''.
+    \item \textbf{Interface References:} GUI login screen design.
+\end{itemize}
+
+\textbf{Processing:}
+\begin{itemize}
+    \item Verify input details against stored data.
+    \item Check role and assign permissions after successful authentication.
+    \item Deny access and display error message if invalid credentials.
+    \item \textbf{Abnormal Situations:} Invalid login, communication failure with database.
+    \item \textbf{Parameters Affected:} User login status, role permissions.
+    \item \textbf{Methods:} Check password securely.
+    \item \textbf{Degraded Operation:} If database unavailable, allow offline login for limited access.
+\end{itemize}
+
+\textbf{Outputs:}
+\begin{itemize}
+    \item \textbf{Data:} Access granted or show a error message.
+    \item \textbf{Timing:} Immediate after login attempt.
+    \item \textbf{Valid Range:} Success or failure states.
+    \item \textbf{Illegal Values:} Display error message for invalid login details.
+    \item \textbf{Interface References:} GUI for successful and unsuccessful login.
+\end{itemize}
+
+\subsubsection{Order Placement}
+
+\textbf{Functional Requirements:}
+\begin{itemize}
+    \item \textbf{FR-02.1} The system shall allow the waiter to select a table number for a new order.
+    \item \textbf{FR-02.2} The system shall display the available menu items to the waiter after table selection.
+    \item \textbf{FR-02.3} The system shall allow the waiter to add one or more menu items to an order.
+    \item \textbf{FR-02.4} The system shall allow the waiter to update or remove selected menu items before order confirmation.
+    \item \textbf{FR-02.6} The system shall generate and display an order summary upon confirmation.
+    \item \textbf{FR-02.7} The system shall forward the confirmed order to the cashier and kitchen staff.
+\end{itemize}
+
+\textbf{Introduction:} Software allow the waiter to take customer orders accurately, select table numbers, add menu items.
+
+\textbf{Inputs:}
+\begin{itemize}
+    \item \textbf{Data:} Table number, menu items.
+    \item \textbf{Sources:} Waiter device interface.
+    \item \textbf{Quantities:} One table number, multiple items per order.
+    \item \textbf{Units of Measure:} Integer (table number, quantity), currency (item price).
+    \item \textbf{Timing:} During customer ordering.
+    \item \textbf{Valid Range:} Table number 1–50; quantity$> 0$; item prices$> 0$.
+    \item \textbf{Operator Controls:} Touchscreen to select table, items, quantities, and confirm order.
+    \item \textbf{Interface References:} GUI menu screen, deal suggestion popup.
+\end{itemize}
+
+\textbf{Processing:}
+\begin{itemize}
+    \item Display menu after table selection.
+    \item Add, update, or remove items in order.
+    \item Automatically check for compatible deals.
+    \item Validate item selection and quantity.
+    \item Confirm and submit order.
+    \item \textbf{Abnormal Situations:} Item selected by customer is  unavailable, quantity exceeds stock, communication failure.
+    \item \textbf{Parameters Affected:} Order contents, total price, status.
+    \item \textbf{Methods:} Check order and apply deal.
+\end{itemize}
+
+\textbf{Outputs:}
+\begin{itemize}
+    \item \textbf{Data:} Order summary with table number, items or deal, quantities.
+    \item \textbf{Destinations:} Waiter, cashier and kitchen staff devices.
+    \item \textbf{Timing:} Immediately after confirmation.
+    \item \textbf{Valid Range:} Order totals $> 0$.
+    \item \textbf{Illegal Values:} Display error if item or quantity invalid.
+    \item \textbf{Interface References:} GUI order summary screen.
+\end{itemize}
+
+\subsubsection{Order Processing}
+
+\textbf{Functional Requirements:}
+\begin{itemize}
+    \item \textbf{FR-03.1} The system shall assign a unique order ID to each confirmed order.
+    \item \textbf{FR-03.2} The system shall transmit the confirmed order details to the cashier and kitchen staff.
+    \item \textbf{FR-03.3} The system shall set the initial status of a new order to \emph{Order Pending}.
+    \item \textbf{FR-03.4} The system shall track and update the order status throughout its lifecycle.
+    \item \textbf{FR-03.5} The system shall display updated order status information to the waiter, cashier, and kitchen staff.
+\end{itemize}
+
+\textbf{Introduction:} The Software sends orders to the cashier and kitchen and keeps track of their status.
+
+\textbf{Inputs:}
+\begin{itemize}
+    \item \textbf{Data:} Confirmed order (items or deal, quantities, table number).
+    \item \textbf{Sources:} Waiter device.
+    \item \textbf{Quantities:} One order per table.
+    \item \textbf{Units of Measure:} string (Items), integer (quantity), currency (price).
+    \item \textbf{Timing:} Immediately after order submission.
+    \item \textbf{Valid Range:} order list can not be empty.
+    \item \textbf{Operator Controls:} None because system automatic process it.
+    \item \textbf{Interface References:} Popups for kitchen staff and order display for cashier.
+\end{itemize}
+
+\textbf{Processing:}
+\begin{itemize}
+    \item Assign unique order ID.
+    \item Send order summary to cashier and kitchen staff.
+    \item Set initial order status to Order Pending.
+    \item Update status in real time.
+    \item \textbf{Abnormal Situations:} Network failure, duplicate order ID.
+    \item \textbf{Parameters Affected:} Order status, order ID.
+    \item \textbf{Methods:} Update order status automatically and assign unique IDs.
+\end{itemize}
+
+\textbf{Outputs:}
+\begin{itemize}
+    \item \textbf{Data:} Order summary, status updates.
+    \item \textbf{Destinations:} Cashier and kitchen staff devices, waiter device.
+    \item \textbf{Timing:} Real time.
+    \item \textbf{Valid Range:} Status: Order Pending, In Preparation, Prepared, Served, Completed.
+    \item \textbf{Illegal Values:} Error notifications if order has an invalid status.
+\item \textbf{Interface References:} Dashboard and notification GUI for cashier, kitchen staff, and waiter.
+
+\end{itemize}
+
+\subsubsection{Kitchen Operations}
+\textbf{Functional Requirements:}
+\begin{itemize}
+    \item \textbf{FR-04.1} The system shall display all pending orders to the kitchen staff.
+    \item \textbf{FR-04.2} The system shall allow kitchen staff to accept an assigned order for preparation.
+    \item \textbf{FR-04.3} The system shall update the order status when preparation begins.
+    \item \textbf{FR-04.4} The system shall allow kitchen staff to mark an order as prepared upon completion.
+    \item \textbf{FR-04.5} The system shall notify the corresponding waiter when an order is marked as prepared.
+\end{itemize}
+\textbf{Introduction:} The software Supports kitchen staff in preparing orders and notifying the waiter on completion.
+
+\textbf{Inputs:}
+\begin{itemize}
+    \item \textbf{Data:} Pending orders, acceptance, completion updates.
+    \item \textbf{Sources:} Kitchen staff device.
+    \item \textbf{Quantities:} One order or multiple orders displayed to kitchen staff.
+    \item \textbf{Units of Measure:} strings (Status),integers (order ID).
+    \item \textbf{Timing:} During order preparation.
+    \item \textbf{Valid Range:} Status values: Pending $\rightarrow$ In Preparation $\rightarrow$ Prepared.
+    \item \textbf{Operator Controls:} Touchscreen or Desktop to accept or complete orders.
+    \item \textbf{Interface References:} Kitchen dashboard GUI.
+\end{itemize}
+
+\textbf{Processing:}
+\begin{itemize}
+    \item Display pending orders.
+    \item Update order status on acceptance and completion.
+    \item Notify corresponding waiter when order is completed.
+    \item \textbf{Abnormal Situations:} Order canceled, system crash, missing order ID.
+    \item \textbf{Parameters Affected:} Order status, notifications.
+    \item \textbf{Methods:} Update order status automatically.
+\end{itemize}
+
+\textbf{Outputs:}
+\begin{itemize}
+    \item \textbf{Data:} Updated order status, waiter notified.
+    \item \textbf{Destinations:} Kitchen dashboard, waiter interface.
+    \item \textbf{Timing:} Real-time.
+    \item \textbf{Valid Range:} Status: Pending $\rightarrow$ In Preparation $\rightarrow$ Prepared.
+    \item \textbf{Illegal Values:} Error displayed on dashboard if status is invalid .
+    \item \textbf{Interface References:} Dashboard and Notification popup GUI.
+\end{itemize}
+
+\subsubsection{Order Serving}
+
+\textbf{Functional Requirements:}
+\begin{itemize}
+    \item \textbf{FR-05.1} The system shall notify the waiter when an order is marked as prepared by the kitchen staff.
+    \item \textbf{FR-05.2} The system shall allow the waiter to mark an order as served to the customer.
+    \item \textbf{FR-05.3} The system shall update the order status to Served when the waiter confirms serving.
+    \item \textbf{FR-05.4} The system shall allow the waiter to mark an order as completed after the customer finishes the meal.
+    \item \textbf{FR-05.5} The system shall update the order status to Completed and make it visible to cashier and admin dashboards.
+\end{itemize}
+\textbf{Introduction:} The software tracks the serving of orders and updates the status after the order is served to the customer and consumed.
+
+\textbf{Inputs:}
+\begin{itemize}
+    \item \textbf{Data:} Order prepared notification from kitchen.
+    \item \textbf{Sources:} Kitchen staff device (Prepared) and waiter device.
+    \item \textbf{Quantities:} One order per table.
+    \item \textbf{Units of Measure:} Strings (Status).
+    \item \textbf{Timing:} After preparation and during serving.
+    \item \textbf{Valid Range:} Status values: Served → Completed.
+    \item \textbf{Operator Controls:} Touchscreen or keyboard to mark order as served or completed.
+    \item \textbf{Interface References:} Waiter order screen GUI.
+\end{itemize}
+
+\textbf{Processing:}
+\begin{itemize}
+    \item Notify waiter when order is prepared and ready.
+    \item Waiter serves the order and updates status to Served.
+    \item Update status to Completed after customer finishes.
+    \item \textbf{Abnormal Situations:} Missed notification, incorrect table selection.
+\end{itemize}
+
+\textbf{Outputs:}
+\begin{itemize}
+    \item \textbf{Data:} Updated order status.
+    \item \textbf{Destinations:} Waiter, cashier, and admin dashboards.
+    \item \textbf{Timing:} Real-time.
+    \item \textbf{Valid Range:} Status: Served $\rightarrow$ Completed.
+    \item \textbf{Illegal Values:} Display error to waiter.
+    \item \textbf{Interface References:} Status update GUI.
+\end{itemize}
+
+
+\subsubsection{Billing and Payment}
+\textbf{Functional Requirements:}
+\begin{itemize}
+    \item \textbf{FR-06.1} The system shall generate a bill for each completed order including item prices, taxes, service charges, and discounts.
+    \item \textbf{FR-06.2} The system shall allow the cashier to select a payment method (cash or online payment).
+    \item \textbf{FR-06.3} The system shall validate the payment amount against the total bill amount.
+    \item \textbf{FR-06.4} The system shall process payments securely and update the payment status.
+    \item \textbf{FR-06.5} The system shall generate and store a payment receipt for accounting and audit purposes.
+\end{itemize}
+\textbf{Introduction:} The software handles bill generation and payment processing, supporting both cash and online payments, ensuring accurate price totals and secure transactions.
+
+\textbf{Inputs:}
+\begin{itemize}
+    \item \textbf{Data:} Order summary (items, quantities, prices), selected payment method, payment amount provided by customer.
+    \item \textbf{Sources:} Cashier device or online payment interface.
+    \item \textbf{Quantities:} One payment per completed order.
+    \item \textbf{Units of Measure:} Currency (Bill).
+    \item \textbf{Timing:} After order completion.
+    \item \textbf{Valid Range:} Payment amount $\geq$ order total including taxes and discounts.
+    \item \textbf{Operator Controls:} Cash entry, card swipe, or online payment confirmation via GUI.
+    \item \textbf{Interface References:} Billing and payment screen GUI.
+\end{itemize}
+
+\textbf{Processing:}
+\begin{itemize}
+    \item Calculate the total bill including taxes, service charges, and applied discounts.
+    \item Validate the payment amount against the order total.
+    \item Process payment through the selected method and update payment status.
+    \item Store transaction records securely for accounting and auditing.
+    \item \textbf{Abnormal Situations:} Insufficient payment, network failure during online payment, or transaction declined.
+    \item \textbf{Parameters Affected:} Payment status, order records, transaction logs.
+    \item \textbf{Methods:} Arithmetic calculations for totals, payment validation, secure transaction.
+\end{itemize}
+
+\textbf{Outputs:}
+\begin{itemize}
+    \item \textbf{Data:} Bill, payment confirmation receipt.
+    \item \textbf{Destinations:} Cashier interface, admin dashboard for records.
+    \item \textbf{Timing:} Immediately after successful payment.
+    \item \textbf{Valid Range:} Total amount $> 0$.
+    \item \textbf{Illegal Values:} Error messages for invalid payment or system failures.
+    \item \textbf{Interface References:} Billing, payment, and receipt GUI screens.
+\end{itemize}
+
+\subsubsection{Administration}
+\textbf{Functional Requirements:}
+\begin{itemize}
+    \item \textbf{FR-07.1} The system shall generate detailed sales reports (daily, weekly, monthly) upon admin request or schedule.
+    \item \textbf{FR-07.2} The system shall identify and display most-selling and low-performing menu items for analysis.
+    \item \textbf{FR-07.3} The system shall allow the admin to add, update, or remove menu items.
+    \item \textbf{FR-07.4} The system shall allow the admin to manage user accounts, including adding, updating, deactivating, or removing users.
+    \item \textbf{FR-07.5} The system shall display error messages for invalid input, duplicate entries, or failed operations.
+\end{itemize}
+\textbf{Introduction:} The Software allows admin to monitor restaurant performance, managing menu items, and controlling user accounts.
+
+\textbf{Inputs:}
+\begin{itemize}
+    \item \textbf{Data:} Requests for sales reports, menu updates, and user management.
+    \item \textbf{Sources:} Admin interface.
+    \item \textbf{Quantities:} One action per request (report generation, menu modification, or user account management).
+    \item \textbf{Units of Measure:} string (menu item , reports).
+    \item \textbf{Timing:} On demand or scheduled intervals.
+    \item \textbf{Valid Range:} sales $\geq$ 0.
+    \item \textbf{Operator Controls:} Admin clicks.
+    \item \textbf{Interface References:} Admin dashboard GUI.
+\end{itemize}
+
+\textbf{Processing:}
+\begin{itemize}
+    \item Generate detailed sales reports (daily, weekly, monthly).
+    \item Identify most-selling items and low-performing items for analysis.
+    \item Add, update, or remove menu items.
+    \item Manage user accounts: add, update, deactivate, or remove users.
+    \item \textbf{Abnormal Situations:} Invalid input data, system crash, duplicate menu entries.
+    \item \textbf{Parameters Affected:} Menu database, sales report data, user account records.
+\end{itemize}
+
+\textbf{Outputs:}
+\begin{itemize}
+    \item \textbf{Data:} Generated reports, updated menu items, user account changes.
+    \item \textbf{Destinations:} Admin dashboard, waiter menu interface.
+    \item \textbf{Timing:} Real time updates for changes, scheduled outputs for reports.
+    \item \textbf{Valid Range:} Accurate sales detail, valid menu item details, correct user account detail.
+    \item \textbf{Illegal Values:} Error messages displayed for invalid input, failed operations, or duplicates.
+    \item \textbf{Interface References:} Admin dashboard GUI.
+\end{itemize}
+
+\subsection{Performance Requirements}
+
+This subsection specifies both static and dynamic numerical requirements placed on the software or on human interaction with the software.
+
+\subsubsection{Static Numerical Requirements}
+\begin{itemize}
+    \item The system shall support at least 50 concurrent users (waiters, cashiers, kitchen staff, admins).
+    \item The system shall handle 50 simultaneous users without performance degradation.
+    \item The system shall support processing up to 500 orders per day.
+    \item The system shall maintain 99.99\% consistency of all order, payment, and report records for up to 500 daily transactions, verified by automated integrity checks at least once per hour.
+\end{itemize}
+
+\subsubsection{Dynamic Numerical Requirements}
+\begin{itemize}
+    \item  The system shall load menu within 3 seconds.
+    \item The system shall process orders entered by the waiter and update the status to the cashier and kitchen staff within 2 seconds per order.
+    \item The system shall reflect order status updates in all relevant user interfaces in real time with a maximum latency of 1 second.
+    \item The system shall generate reports for daily sales within 5 seconds and for up to one year of data within 10 seconds.
+    \item The system shall complete and log payment transactions successfully at least 99.99\% of the time.
+    \item The system shall allow new users to learn and perform primary tasks (login, place/update orders, generate reports) within 10 minutes of training, for at least 90\% of users tested.
+    \item The system shall provide visual notifications (pop-ups) for order updates within 1 second of the triggering event.
+\end{itemize}
+
+\subsection{Design Constraints}
+
+\subsubsection{Standards Compliance}
+\begin{itemize}
+    \item The system shall follow standard rules for report formats, data naming, and review records.
+    \item The system shall record all changes in orders, payments, or reports with before and after values, and these records shall be kept for at least 12 months.
+    \item The system shall produce reports within 5 seconds for daily report and within 10 seconds for upto 1 year when requested.
+\end{itemize}
+
+\subsubsection{Hardware Limitations}
+\begin{itemize}
+    \item The system shall run on Windows 10 or newer and Android 10 or newer.
+    \item The system shall work on PCs with at least 4 GB RAM, 2-core CPU, and 256 GB storage, and on Android devices with at least 2 GB RAM and 16 GB storage.
+    \item The system shall process all orders, payments, and reports without using more than 80\% of CPU or memory on peak load.
+    \item The system shall work properly with network speeds of at least 10 Mbps for proper operation across multiple devices.
+\end{itemize}
+
+\subsection{Attributes}
+
+\subsubsection{Availability}
+\begin{itemize}
+    \item The system shall be 99.99\% available during restaurant hours for example (10:00 AM--11:00 PM).
+    \item The system shall have a maximum downtime of 2 hours per month for maintenance.
+    \item The system shall maintain 99.5\% uptime for critical services (login, order processing, payment) during operating hours.
+\end{itemize}
+
+\subsubsection{Security }
+\begin{itemize}
+    \item Each user shall access the system only after successful authentication.
+    \item Admin operations shall require multi factor authentication.
+    \item The system shall log and report unauthorized access attempts within 10 seconds.
+\end{itemize}
+
+\subsubsection{Maintainability }
+\begin{itemize}
+    \item The system shall reflect updates to menu items or deals within 5 seconds of admin confirmation.
+    \item The system shall allow incremental updates for new features without downtime exceeding 10 minutes.
+\end{itemize}
+
+\subsubsection{Portability / Transferability }
+\begin{itemize}
+    \item The system shall operate on Windows 10 or newer and Android 10 or newer.
+    \item The system shall maintain consistent user interface and functionality across supported platforms.
+\end{itemize}
+
+\subsubsection{Data Integrity }
+\begin{itemize}
+    \item The system shall maintain 100\% consistency of order, payment, and report data for up to 500 daily transactions.
+    \item In case of power failure or system crash, the system shall restore the last consistent state within 30 seconds of reboot.
+\end{itemize}
+
+
+\subsection{External Interface Requirements }
+
+\subsubsection{User Interfaces }
+\begin{itemize}
+    \item The system shall provide separate graphical user interfaces for Waiter, Cashier, Kitchen Staff, and Admin.
+    \item Interfaces shall allow login, order placement, order tracking, bill generation, and reporting according to user roles.
+    \item The GUI shall include touch friendly elements for android use.
+    \item Interfaces shall provide visual notifications (pop-ups) for order updates, errors, and confirmations within 1 second of the event.
+    \item Each interface shall use consistent screen formats and layouts.
+    \item New users shall be able to perform primary tasks (login, place/update orders, generate reports) within 10 minutes of training, verified with at least 90\% success rate in test users.
+\end{itemize}
+
+\subsubsection{Hardware Interfaces (6.3.1.5.2)}
+\begin{itemize}
+    \item The system shall run on  desktop PCs, and Android.
+    \item The system shall interface with receipt printers for printing bills and order receipts.
+    \item Cash drawers shall open automatically after successful cash payment.
+    \item The system shall support standard screen resolutions of at least 1280×720 for PCs and tablets.
+\end{itemize}
+
+\subsubsection{Software Interfaces }
+\begin{itemize}
+    \item The system shall integrate with the restaurant database for storing user accounts, orders, payments, and menu items.
+    \item The system shall integrate with payment gateways (online payment APIs) to process digital payments securely.
+\end{itemize}
+
+\subsubsection{Communications Interfaces }
+\begin{itemize}
+    \item The system shall communicate over the local area network (LAN) to synchronize orders across devices in real time.
+    \item Internet connectivity shall be used for online payment processing and admin access.
+\end{itemize}
+
+\subsection{Other Requirements }
+
+\subsubsection{Database Requirements}
+\begin{itemize}
+    \item The database shall store orders, payments, user accounts, and menu items.
+    \item Data shall be accessed quickly so that order status and reports are available in real time.
+    \item The system shall let at least 50 users access and update data at the same time without errors or delays.
+    \item Data elements and records shall follow defined field types, lengths, and relationships.
+\item The database shall be organized to handle up to 500 transactions per day without errors or performance problems.
+    \item Dynamic organization: system shall maintain real-time updates for orders, payments, and reports.
+    \item Data shall be retained for at least 12 months until admin specified.
+    \item Cash drawers shall open automatically after successful cash payment.
+\end{itemize}
+\appendix
+
+\section{Use Case Diagram}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{use_case_diagram.png}
+    \caption{Use Case Diagram of the POS System}
+    \label{fig:use_case_diagram}
+\end{figure}
+
+\section{Context Diagram}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{context_diagram.png}
+    \caption{Context Diagram of the POS System}
+    \label{fig:context_diagram}
+\end{figure}
+
+
+
+\end{document}
